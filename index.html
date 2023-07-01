@@ -4,6 +4,8 @@
 	<title>Phasmophobia Tool by DilawNaBuwan 2023</title>
 	<style>
 	body {
+    justify-content: center;
+    align-items: center;
 		background-color: black;
 	}
 	
@@ -56,20 +58,20 @@
 		color: red;
 	}
 	
-	.Normal-container,
-	.TwinFast-container,
-	.TwinSlow-container,
-	.RevSlow-container,
-	.RevFast-container,
-	.Thaye-container,
-	.Moroi-container,
-	.Raiju-container,
-	.Jinn-container {
-		margin-top: 0px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	.speed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 	}
+
+  TableMetro {
+    border-collapse: collapse;
+  }
+	
+	td {
+			border: 1px solid black;
+			padding: 1px;
+		}
 	
 	.Normal,
 	.TwinFast,
@@ -82,8 +84,9 @@
 	.Jinn {
 		margin-top: 0px;
 		margin-bottom: 0px;
-		margin-right: 20px;
+		margin-right: 0px;
 		font-size: 24px;
+		text-align: left;
 		font-family: Chiller, cursive;
 		color: red;
 	}
@@ -115,50 +118,54 @@
 				X 150
 			</label>
 		</div>
-		<div class="Normal-container">
-			<p class="Normal">Normal Ghost</p>
-			<button id="playButton01">Play</button>
-			<button id="stopButton01">Stop</button>
-		</div>
-		<div class="TwinFast-container">
-			<p class="TwinFast">Twin decoy (fast)</p>
-			<button id="playButton02">Play</button>
-			<button id="stopButton02">Stop</button>
-		</div>
-		<div class="TwinSlow-container">
-			<p class="TwinSlow">Twin original (slow)</p>
-			<button id="playButton03">Play</button>
-			<button id="stopButton03">Stop</button>
-		</div>
-		<div class="RevSlow-container">
-			<p class="RevSlow">Revenant while roaming (slow)</p>
-			<button id="playButton04">Play</button>
-			<button id="stopButton04">Stop</button>
-		</div>
-		<div class="RevFast-container">
-			<p class="RevFast">Revenant while chasing (fast)</p>
-			<button id="playButton05">Play</button>
-			<button id="stopButton05">Stop</button>
-		</div>
-		<div class="Thaye-container">
-			<p class="Thaye">Thaye (early)</p>
-			<button id="playButton06">Play</button>
-			<button id="stopButton06">Stop</button>
-		</div>
-		<div class="Moroi-container">
-			<p class="Moroi">Moroi (at 0 sanity)</p>
-			<button id="playButton07">Play</button>
-			<button id="stopButton07">Stop</button>
-		</div>
-		<div class="Raiju-container">
-			<p class="Raiju">Raiju near electronics</p>
-			<button id="playButton08">Play</button>
-			<button id="stopButton08">Stop</button>
-		</div>
-		<div class="Jinn-container">
-			<p class="Jinn">Jinn with LoS with breaker on</p>
-			<button id="playButton09">Play</button>
-			<button id="stopButton09">Stop</button>
+		<div class="speed">
+      <table class="TableMetro">
+        <tr class="Normal-container">
+          <td><p class="Normal">Normal Ghost</p></td>
+          <td><button id="playButton01">Play</button></td>
+          <td><button id="stopButton01">Stop</button></td>
+        </tr>
+        <tr class="TwinFast-container">
+        	<td><p class="TwinFast">Twin decoy (fast)</p></td>
+        	<td><button id="playButton02">Play</button></td>
+        	<td><button id="stopButton02">Stop</button></td>
+        </tr>
+        <tr class="TwinSlow-container">
+        	<td><p class="TwinSlow">Twin original (slow)</p></td>
+        	<td><button id="playButton03">Play</button></td>
+        	<td><button id="stopButton03">Stop</button></td>
+        </tr>
+        <tr class="RevSlow-container">
+        	<td><p class="RevSlow">Revenant while roaming (slow)</p></td>
+        	<td><button id="playButton04">Play</button></td>
+        	<td><button id="stopButton04">Stop</button></td>
+        </tr>
+        <tr class="RevFast-container">
+        	<td><p class="RevFast">Revenant while chasing (fast)</p></td>
+        	<td><button id="playButton05">Play</button></td>
+        	<td><button id="stopButton05">Stop</button></td>
+        </tr>
+        <tr class="Thaye-container">
+        	<td><p class="Thaye">Thaye (early)</p></td>
+        	<td><button id="playButton06">Play</button></td>
+        	<td><button id="stopButton06">Stop</button></td>
+        </tr>
+        <tr class="Moroi-container">
+        	<td><p class="Moroi">Moroi (at 0 sanity)</p></td>
+        	<td><button id="playButton07">Play</button></td>
+        	<td><button id="stopButton07">Stop</button></td>
+        </tr>
+        <tr class="Raiju-container">
+        	<td><p class="Raiju">Raiju near electronics</p></td>
+        	<td><button id="playButton08">Play</button></td>
+        	<td><button id="stopButton08">Stop</button></td>
+        </tr>
+        <tr class="Jinn-container">
+        	<td><p class="Jinn">Jinn with LoS with breaker on</p></td>
+        	<td><button id="playButton09">Play</button></td>
+        	<td><button id="stopButton09">Stop</button></td>
+        </tr>
+  		</table>
 		</div>
 	</div>
 
