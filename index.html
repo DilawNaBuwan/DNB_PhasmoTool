@@ -217,7 +217,7 @@
 		var timerId;
 
 		function playTick(bpm) {
-			var audio = new Audio('tick.mp3'); // Replace 'tick.mp3' with your audio file path
+			var audio = new Audio('./tick.mp3'); // Replace 'tick.mp3' with your audio file path
 			audio.play();
 
 			var delay = Math.round(60000 / bpm);
