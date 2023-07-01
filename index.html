@@ -1,128 +1,327 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Stopwatch</title>
-		<style>
-		body {
-			background-color: black;
-		}
-		
-		.container {
-			text-align: center;
-			margin-top: 100px;
-		}
-		
-		.Phasmotitle {
-			font-size: 60px;
-			font-family: Chiller, cursive;
-			color: red;
-		}
-		
-		.timer {
-			font-size: 48px;
-			font-family: Chiller, cursive;
-			color: red;
-		}
-		
-		.Timerbuttons {
-			margin-top: 20px;
-		}
-		
-		.SpeedTestTitle {
-			font-size: 20px;
-			font-family: Chiller, cursive;
-			color: red;
-		}
-		
-		.SpeedTestbuttons {
-			margin-top: 20px;
-		}
-		
-		.radio-container label {
-			margin-right: 20px;
-			font-family: Chiller, cursive;
-			color: red;
-		}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="Phasmotitle">Phasmophobia Tool</div>
-			<div class="timer">00:00</div>
-			<div class="Timerbuttons">
-				<button onclick="start()">Start</button>
-				<button onclick="stop()">Stop</button>
-				<button onclick="reset()">Reset</button>
-				<button onclick="restart()">Restart</button>
-			</div>
-			<div class="SpeedTestTitle">Check Speed - Select Ghost Speed Percentage</div>
-			<div class="radio-container">
-				<label>
-					<input type="radio" name="GhostM" value="100" checked>
-					Normal
-				</label>
-				<label>
-					<input type="radio" name="metronomeSpeed" value="120">
-					Fast
-				</label>
-				<label>
-					<input type="radio" name="metronomeSpeed" value="140">
-					Faster
-				</label>
-			</div>
-		</div>
+<head>
+	<title>Stopwatch</title>
+	<style>
+	body {
+		background-color: black;
+	}
 	
-	  <script>
+	.container {
+		text-align: center;
+		margin-top: 20px;
+	}
+	
+	.Phasmotitle {
+		font-size: 36px;
+		font-family: Chiller, cursive;
+		color: red;
+	}
+	
+	.timer {
+		font-size: 48px;
+		font-family: Chiller, cursive;
+		color: red;
+	}
+	
+	.Timerbuttons button {
+		//margin-top: 20px;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	
+	.SpeedTestTitle {
+		margin-top: 20px;
+		margin-bottom: 5px;
+		font-size: 36px;
+		font-family: Chiller, cursive;
+		color: red;
+	}
+	
+	.BPM {
+		font-size: 36px;
+		font-family: Chiller, cursive;
+		color: red;
+	}
+	
+	.SpeedTestbuttons {
+		margin-top: 20px;
+	}
+	
+	.radio-container label {
+		margin-right: 10px;
+		margin-left: 10px;
+		font-size: 24px;
+		font-family: Chiller, cursive;
+		color: red;
+	}
+	
+	.Normal-container,
+	.TwinFast-container,
+	.TwinSlow-container,
+	.RevSlow-container,
+	.RevFast-container,
+	.Thaye-container,
+	.Moroi-container,
+	.Raiju-container,
+	.Jinn-container {
+		margin-top: 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.Normal,
+	.TwinFast,
+	.TwinSlow,
+	.RevSlow,
+	.RevFast,
+	.Thaye,
+	.Moroi,
+	.Raiju,
+	.Jinn {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		margin-right: 20px;
+		font-size: 24px;
+		font-family: Chiller, cursive;
+		color: red;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="Phasmotitle">Phasmophobia Tool by DilawNaBuwan 2023</div>
+		<div class="timer">00:00</div>
+		<div class="Timerbuttons">
+			<button onclick="start()">Start</button>
+			<button onclick="stop()">Stop</button>
+			<button onclick="reset()">Reset</button>
+			<button onclick="restart()">Restart</button>
+		</div>
+		<div class="SpeedTestTitle">Check Speed - Select First Ghost Speed Percentage</div>
+		<div class="BPM">0 BPM</div>
+		<div class="radio-container">
+			<label>
+				<input type="radio" name="GhostMult" value="100" checked>
+				X 100
+			</label>
+			<label>
+				<input type="radio" name="GhostMult" value="125">
+				X 125
+			</label>
+			<label>
+				<input type="radio" name="GhostMult" value="150">
+				X 150
+			</label>
+		</div>
+		<div class="Normal-container">
+			<p class="Normal">Normal Ghost</p>
+			<button id="playButton01">Play</button>
+			<button id="stopButton01">Stop</button>
+		</div>
+		<div class="TwinFast-container">
+			<p class="TwinFast">Twin decoy (fast)</p>
+			<button id="playButton02">Play</button>
+			<button id="stopButton02">Stop</button>
+		</div>
+		<div class="TwinSlow-container">
+			<p class="TwinSlow">Twin original (slow)</p>
+			<button id="playButton03">Play</button>
+			<button id="stopButton03">Stop</button>
+		</div>
+		<div class="RevSlow-container">
+			<p class="RevSlow">Revenant while roaming (slow)</p>
+			<button id="playButton04">Play</button>
+			<button id="stopButton04">Stop</button>
+		</div>
+		<div class="RevFast-container">
+			<p class="RevFast">Revenant while chasing (fast)</p>
+			<button id="playButton05">Play</button>
+			<button id="stopButton05">Stop</button>
+		</div>
+		<div class="Thaye-container">
+			<p class="Thaye">Thaye (early)</p>
+			<button id="playButton06">Play</button>
+			<button id="stopButton06">Stop</button>
+		</div>
+		<div class="Moroi-container">
+			<p class="Moroi">Moroi (at 0 sanity)</p>
+			<button id="playButton07">Play</button>
+			<button id="stopButton07">Stop</button>
+		</div>
+		<div class="Raiju-container">
+			<p class="Raiju">Raiju near electronics</p>
+			<button id="playButton08">Play</button>
+			<button id="stopButton08">Stop</button>
+		</div>
+		<div class="Jinn-container">
+			<p class="Jinn">Jinn with LoS with breaker on</p>
+			<button id="playButton09">Play</button>
+			<button id="stopButton09">Stop</button>
+		</div>
+	</div>
+
+	<script>
 		var startTime;
 		var elapsedTime = 0;
 		var timerInterval;
-		
+
 		function start() {
 			if (!timerInterval) {
 				startTime = Date.now() - elapsedTime;
 				timerInterval = setInterval(updateTimer, 10);
 			}
 		}
-		
+
 		function stop() {
 			clearInterval(timerInterval);
 			timerInterval = null;
 		}
-		
+
 		function reset() {
 			startTime = Date.now();
 			elapsedTime = 0;
 			updateTimer();
 		}
-		
+
 		function restart() {
 			stop();
 			reset();
 		}
-		
+
 		function updateTimer() {
 			var currentTime = Date.now();
 			elapsedTime = currentTime - startTime;
 			var formattedTime = formatTime(elapsedTime);
 			document.querySelector('.timer').textContent = formattedTime;
 		}
-		
+
 		function formatTime(time) {
 			var milliseconds = Math.floor((time % 1000) / 10);
 			var seconds = Math.floor((time / 1000) % 60);
 			var minutes = Math.floor((time / (1000 * 60)) % 60);
 			var hours = Math.floor((time / (1000 * 60 * 60)) % 24);
-			
+
 			var formattedTime =
-			pad(minutes) + ':' +
-			pad(seconds);
-			
+				pad(minutes) + ':' +
+				pad(seconds);
+
 			return formattedTime;
 		}
-		
+
 		function pad(number) {
 			return (number < 10 ? '0' : '') + number;
 		}
-		</script>
-	</body>
+
+		var timerId;
+
+		function playTick(bpm) {
+			var audio = new Audio('tick.mp3'); // Replace 'tick.mp3' with your audio file path
+			audio.play();
+
+			var delay = Math.round(60000 / bpm);
+			timerId = setTimeout(function () {
+				playTick(bpm);
+			}, delay);
+		}
+
+		function startMetronome() {
+			var selectedOption = document.querySelector('input[name="GhostMult"]:checked');
+			var GhostSpeedVal;
+
+			if (this.id === 'playButton01') {
+				GhostSpeedVal = 115;
+			} else if (this.id === 'playButton02') {
+				GhostSpeedVal = 135;
+			} else if (this.id === 'playButton03') {
+				GhostSpeedVal = 100;
+			} else if (this.id === 'playButton04') {
+				GhostSpeedVal = 77;
+			} else if (this.id === 'playButton05') {
+				GhostSpeedVal = 209;
+			} else if (this.id === 'playButton06') {
+				GhostSpeedVal = 192;
+			} else if (this.id === 'playButton07') {
+				GhostSpeedVal = 157;
+			} else if (this.id === 'playButton08') {
+				GhostSpeedVal = 174;
+			} else if (this.id === 'playButton09') {
+				GhostSpeedVal = 174;
+			} else {
+				GhostSpeedVal = 115;
+			}
+
+			var bpm = GhostSpeedVal * parseInt(selectedOption.value) / 100;
+
+			stopMetronome(); // Stop the metronome if it's already playing
+			document.querySelector('.BPM').textContent = bpm + ' BPM';
+			playTick(bpm);
+		}
+
+		function stopMetronome() {
+			document.querySelector('.BPM').textContent = '0 BPM';
+			clearTimeout(timerId);
+		}
+
+		var playButton01 = document.getElementById('playButton01');
+		playButton01.addEventListener('click', startMetronome);
+
+		var stopButton01 = document.getElementById('stopButton01');
+		stopButton01.addEventListener('click', stopMetronome);
+
+		var playButton02 = document.getElementById('playButton02');
+		playButton02.addEventListener('click', startMetronome);
+
+		var stopButton02 = document.getElementById('stopButton02');
+		stopButton02.addEventListener('click', stopMetronome);
+
+		var playButton03 = document.getElementById('playButton03');
+		playButton03.addEventListener('click', startMetronome);
+
+		var stopButton03 = document.getElementById('stopButton03');
+		stopButton03.addEventListener('click', stopMetronome);
+
+		var playButton04 = document.getElementById('playButton04');
+		playButton04.addEventListener('click', startMetronome);
+
+		var stopButton04 = document.getElementById('stopButton04');
+		stopButton04.addEventListener('click', stopMetronome);
+
+		var playButton05 = document.getElementById('playButton05');
+		playButton05.addEventListener('click', startMetronome);
+
+		var stopButton05 = document.getElementById('stopButton05');
+		stopButton05.addEventListener('click', stopMetronome);
+
+		var playButton06 = document.getElementById('playButton06');
+		playButton06.addEventListener('click', startMetronome);
+
+		var stopButton06 = document.getElementById('stopButton06');
+		stopButton06.addEventListener('click', stopMetronome);
+
+		var playButton07 = document.getElementById('playButton07');
+		playButton07.addEventListener('click', startMetronome);
+
+		var stopButton07 = document.getElementById('stopButton07');
+		stopButton07.addEventListener('click', stopMetronome);
+
+		var playButton08 = document.getElementById('playButton08');
+		playButton08.addEventListener('click', startMetronome);
+
+		var stopButton08 = document.getElementById('stopButton08');
+		stopButton08.addEventListener('click', stopMetronome);
+
+		var playButton09 = document.getElementById('playButton09');
+		playButton09.addEventListener('click', startMetronome);
+
+		var stopButton09 = document.getElementById('stopButton09');
+		stopButton09.addEventListener('click', stopMetronome);
+
+		var radioButtons = document.querySelectorAll('input[name="GhostMult"]');
+		radioButtons.forEach(function (radioButton) {
+			radioButton.addEventListener('change', stopMetronome);
+		});
+	</script>
+</body>
 </html>
